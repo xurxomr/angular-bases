@@ -11,8 +11,6 @@
         "delete:docs": "del-cli docs dist",
         "copy:dist": "copyfiles -f dist/bases/* dist/bases/browser/* ./docs",
         "git:commit:release": "git add . && git commit -m \"chore: Release new version\" && git push",
-        "git:add": "git add .",
-        "publish:github:dry": "npm run delete:docs && npm run build:href && npm run copy:dist && npm run git:add",
         "publish:github": "npm run delete:docs && npm run build:href && npm run copy:dist && npm run git:commit:release"
     },
     "private": true,
