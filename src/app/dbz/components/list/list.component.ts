@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -8,6 +8,15 @@ import { Character } from '../../interfaces/character.interface';
     styleUrl: './list.component.css',
 })
 export class ListComponent {
+
+    @Output()
+    public onDelete: EventEmitter<string> = new EventEmitter();
+
+    emitDeleteCharacter(uuid?: string): void {
+        if (!uuid) return;
+
+        this.onDelete.emit(uuid);
+    }
 
     @Input()
     public characters: Character[] = [];

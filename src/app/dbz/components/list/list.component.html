@@ -4,11 +4,16 @@
         [ngClass]="{
             'list-group-item-danger': character.power > 9000,
             'list-group-item-dark': character.power <= 5000
-        }" class="list-group-item list-group-item-warning">
+        }" class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
 
-        <span class="text-primary">{{ i + 1 }}. </span>
-        <span>{{ character.name }} - </span>
-        <strong>Power: </strong>
-        <span>{{ character.power }}</span>
+        <div>
+            <span class="text-primary">{{ i + 1 }}. </span>
+            <span>{{ character.name }} - </span>
+            <strong>Power: </strong>
+            <span>{{ character.power }}</span>
+        </div>
+        <button class="btn btn-danger btn-close-white" (click)="emitDeleteCharacter(character.uuid)">
+            X
+        </button>
     </li>
 </ul>
